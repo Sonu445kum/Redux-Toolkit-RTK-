@@ -1,5 +1,6 @@
 
 import CounterApp from './Components/CounterApp'
+import UseReducerCounter from './UseReducers/UseReducerCounter'
 
 function App() {
 
@@ -8,6 +9,8 @@ function App() {
     <>
       <h1>React Redux Toolkit or RTK</h1>
       <CounterApp/>
+      {/* UseReducers Hooks */}
+      <UseReducerCounter/>
     </>
   )
 }
