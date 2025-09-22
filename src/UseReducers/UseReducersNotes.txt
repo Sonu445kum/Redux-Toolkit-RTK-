@@ -1,0 +1,18 @@
+const [state, dispatch] = useReducer(reducer, initialState);
+
+state → current state value.
+
+dispatch → function you call to trigger changes.
+
+reducer → function (state, action) => newState.
+
+initialState → starting state.
+
+
+Key Points:
+
+Action is just an object { type, payload }.
+
+Reducer always returns a new state.
+
+dispatch sends the action → reducer → updates state.

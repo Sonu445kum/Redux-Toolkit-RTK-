@@ -1,0 +1,112 @@
+Redux (Global State Manager)
+
+Redux is like useReducer but shared across the whole app.
+
+Store = Holds global state.
+
+Reducer(s) = Pure functions to update state.
+
+Action = Object describing what to do.
+
+Dispatch = Sends action to store.
+
+Selector = Function to read data from store.
+
+Flow:
+UI → dispatch(action) → reducer → new state → UI re-renders
+
+
+Redux Toolkit (RTK)
+ Modern Redux (faster, less boilerplate, easier).
+
+Why RTK?
+Old Redux = too much setup (actions, constants, switch cases).
+RTK = auto-generates actions, reduces boilerplate, supports Immer (so you can "mutate" safely).
+
+Store:
+Like a “big container” that holds your entire app state.
+
+Slice:
+A slice = reducer + actions for a feature.
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const counterSlice = createSlice({
+  name: "counter",
+  initialState: { value: 0 },
+  reducers: {
+    increment: (state) => { state.value += 1; }, // immer handles immutability
+    decrement: (state) => { state.value -= 1; },
+    incrementByAmount: (state, action) => { state.value += action.payload; },
+  },
+});
+
+export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export default counterSlice.reducer;
+
+createSlice automatically creates:
+
+Reducer function (to handle state).
+
+Action creators (increment(), decrement()).
+
+With Immer, we can "mutate" state.value += 1;.
+
+Actions
+
+ Objects that describe what to do.
+
+With RTK, you don’t write them manually — createSlice makes them:
+
+dispatch(increment()); // { type: "counter/increment" }
+dispatch(incrementByAmount(5)); // { type: "counter/incrementByAmount", payload: 5 }
+
+Dispatch:
+Function to send an action to the store.
+
+import { useDispatch } from "react-redux";
+import { increment } from "./counterSlice";
+
+function CounterButton() {
+  const dispatch = useDispatch();
+  return <button onClick={() => dispatch(increment())}>+</button>;
+}
+
+Selector
+
+👉 Function to read state from the store.
+
+import { useSelector } from "react-redux";
+
+function CounterValue() {
+  const count = useSelector((state) => state.counter.value);
+  return <h1>{count}</h1>;
+}
+
+Hooks:
+useSelector → read data from store.
+useDispatch → send actions to store.
+
+function Counter() {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => dispatch(increment())}>+</button>
+    </div>
+  );
+}
+
+
+Mastery Tips (for RTK)
+
+Always split features into slices (authSlice, cartSlice, userSlice).
+
+Use createAsyncThunk for API calls (handles loading, success, error states).
+
+Use selectors to keep components clean.
+
+Keep UI logic in components and business logic in slices.
+Component → Dispatch Action → Slice Reducer → Store → Component Re-render

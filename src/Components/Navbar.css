@@ -1,0 +1,73 @@
+/* Navbar container */
+.navbar {
+  background-color: #1e3a8a; /* nice blue */
+  color: white;
+  padding: 10px 20px; /* reduced padding for smaller height */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo a {
+  text-decoration: none;
+  color: white;
+  font-size: 24px; /* reduced font-size for better fit */
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #a5b4fc;
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* reduced gap for compact layout */
+  font-size: 16px; /* slightly smaller font */
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #a5b4fc;
+}
+
+/* Cart link with badge */
+.cart-link {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px; /* adjusted top */
+  right: -10px; /* adjusted right */
+  background-color: #ef4444; /* red */
+  color: white;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
