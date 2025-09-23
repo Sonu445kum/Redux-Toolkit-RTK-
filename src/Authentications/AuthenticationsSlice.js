@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, isRejectedWithValue } from "@reduxjs/toolkit";
 
-
 // fake api to simulate the login
 const  fakeLoginApi =async(credentials)=>{
     return new Promise((resolve,reject)=>{

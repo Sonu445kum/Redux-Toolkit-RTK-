@@ -6,6 +6,7 @@ import About from './Components/About';
 import CounterApp from './Components/CounterApp'
 import Home from './Components/Home';
 import Navbar from './Components/Navbar';
+import UsersList from './RTKQuery/UserList';
 import TodoApp from './TodoApp/TodoApp';
 import UseReducerCounter from './UseReducers/UseReducerCounter'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -43,8 +44,12 @@ function App() {
        {/* <TodoApp/> */}
 
        {/* Authentications */}
-       <AuthDemo/>
+       {/* <AuthDemo/> */}
+
+       {/* RTK Query */}
+       <UsersList/>
     </>
+
   )
 }
 
