@@ -6,7 +6,7 @@ export default function UsersList() {
   const [addUser] = useAddUserMutation();
 
   const [users, setUsers] = useState([]);
-  const [name, setName] = useState(""); // ✅ input ke liye state
+  const [name, setName] = useState("");
 
   useEffect(() => {
     if (data) setUsers(data);
@@ -16,19 +16,23 @@ export default function UsersList() {
   if (error) return <p>Error occurred</p>;
 
   const handleAdd = async () => {
-    if (!name.trim()) return alert("Please enter a name"); //  empty input na ho
+    if (!name.trim()) return alert("Please enter a name");
 
-    const newUser = { name, email: `${name.toLowerCase()}@test.com` };
-    setUsers([...users, newUser]); //  UI pe turant add kar diya
-    await addUser(newUser);        //  API pe bhi bhej diya
-    setName(""); //  input clear kar diya
+    const newUser = {
+      id: Date.now(), //  unique id banayi
+      name,
+      email: `${name.toLowerCase()}@test.com`,
+    };
+
+    setUsers([...users, newUser]); 
+    await addUser(newUser);       
+    setName(""); 
   };
 
   return (
     <div>
       <h2>Users</h2>
 
-      {/* Input field */}
       <input
         type="text"
         placeholder="Enter user name"
@@ -39,8 +43,8 @@ export default function UsersList() {
       <button onClick={handleAdd}>Add User</button>
 
       <div style={{ marginTop: "20px" }}>
-        {users.map((user, index) => (
-          <p key={user.id || index}>{user.name}</p>
+        {users.map((user) => (
+          <p key={user.id}>{user.name}</p> //  ab id unique hamesha
         ))}
       </div>
     </div>
