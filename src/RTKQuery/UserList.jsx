@@ -6,7 +6,7 @@ export default function UsersList() {
   const [addUser] = useAddUserMutation();
 
   const [users, setUsers] = useState([]);
-  const [name, setName] = useState(""); // ✅ input ke liye state
+  const [name, setName] = useState(""); //  input ke liye state
 
   useEffect(() => {
     if (data) setUsers(data);
