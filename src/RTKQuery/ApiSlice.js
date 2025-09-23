@@ -30,6 +30,7 @@ export const apiSlice = createApi({
     getUsers: builder.query({
       query: () => "/users",
       providesTags: ["Users"], //  cache ke liye tag
+      // providesTags are used for the query
     }),
     addUser: builder.mutation({
       query: (newUser) => ({
@@ -38,9 +39,12 @@ export const apiSlice = createApi({
         body: newUser,
       }),
       invalidatesTags: ["Users"], //  ye bolta hai ki getUsers ko refetch karo
+      // invalidatesTags are used for the mutation
     }),
   }),
 });
 
+// her i m export both two hooks 
+// because in the Reactjs , RTK query are the converts api into hooks 
 export const { useGetUsersQuery, useAddUserMutation } = apiSlice;
 
