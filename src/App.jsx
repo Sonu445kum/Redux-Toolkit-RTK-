@@ -5,6 +5,7 @@ import About from './Components/About';
 import CounterApp from './Components/CounterApp'
 import Home from './Components/Home';
 import Navbar from './Components/Navbar';
+import TodoApp from './TodoApp/TodoApp';
 import UseReducerCounter from './UseReducers/UseReducerCounter'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -23,7 +24,7 @@ function App() {
       {/* <Cart/>
       <AllProductsList/> */}
 
-      <Router>
+      {/* <Router>
       <Navbar />
       <h1>My Shop</h1> 
       <div className="p-4">
@@ -35,7 +36,10 @@ function App() {
         </Routes>
       </div>
     </Router>
-      
+       */}
+
+       {/* TodoApp */}
+       <TodoApp/>
     </>
   )
 }
