@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useGetUsersQuery, useAddUserMutation } from "./ApiSlice";
-
+import "./UserList.css"
 export default function UsersList() {
   const { data, error, isLoading } = useGetUsersQuery();
   const [addUser] = useAddUserMutation();
@@ -34,7 +34,7 @@ export default function UsersList() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Users</h2>
 
       <input
