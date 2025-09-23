@@ -24,7 +24,7 @@ function App() {
       {/* <Cart/>
       <AllProductsList/> */}
 
-      {/* <Router>
+      <Router>
       <Navbar />
       <h1>My Shop</h1> 
       <div className="p-4">
@@ -35,11 +35,11 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
-    </Router>
-       */}
+    </Router> 
+       
 
        {/* TodoApp */}
-       <TodoApp/>
+       {/* <TodoApp/> */}
     </>
   )
 }
